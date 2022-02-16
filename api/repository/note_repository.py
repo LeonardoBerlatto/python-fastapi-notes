@@ -12,10 +12,13 @@ class NoteRepository:
 
     def add_note(self, note: Note):
         note.id = len(self.notes) + 1
-        return self.notes.append(note)
+        self.notes.append(note)
+        return note
 
     def update_note(self, note_to_update: Note):
         self.notes[note_to_update.id - 1] = note_to_update
+        return note_to_update
 
     def delete_note(self, note_id: int):
-        self.notes.pop(note_id - 1)
+        return self.notes.pop(note_id - 1)
+

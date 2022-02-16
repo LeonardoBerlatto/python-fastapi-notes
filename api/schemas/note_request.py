@@ -1,8 +1,6 @@
 from pydantic import BaseModel
 
 
-class Note(BaseModel):
-    id: int
+class NoteRequest(BaseModel):
     title: str
     description: str
-
