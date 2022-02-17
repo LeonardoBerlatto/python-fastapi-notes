@@ -1,6 +1,6 @@
 from api.models.note import Note
 from api.repository.note_repository import NoteRepository
-from api.schemas.note_request import NoteRequest
+from api.routes.schemas.note_request import NoteRequest
 
 
 class NoteService:
