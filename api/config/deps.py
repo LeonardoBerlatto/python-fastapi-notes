@@ -1,4 +1,4 @@
-from api.repository.note_repository import NoteRepository
+from api.repository.mongo_note_repository import NoteRepository
 
 
 def get_note_repository():

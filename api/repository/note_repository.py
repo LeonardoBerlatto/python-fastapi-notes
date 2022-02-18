@@ -1,24 +1,27 @@
-from api.models.note import Note
+import abc
+
+from api.models import Note
 
 
 class NoteRepository:
-    notes: list[Note] = []
+    __metaclass__ = abc.ABCMeta
 
+    @abc.abstractmethod
     def get_notes(self):
-        return self.notes
+        pass
 
+    @abc.abstractmethod
     def get_note_by_id(self, note_id: int):
-        return self.notes[note_id - 1]
+        pass
 
+    @abc.abstractmethod
     def add_note(self, note: Note):
-        note.id = len(self.notes) + 1
-        self.notes.append(note)
-        return note
+        pass
 
+    @abc.abstractmethod
     def update_note(self, note_to_update: Note):
-        self.notes[note_to_update.id - 1] = note_to_update
-        return note_to_update
+        pass
 
+    @abc.abstractmethod
     def delete_note(self, note_id: int):
-        return self.notes.pop(note_id - 1)
-
+        pass

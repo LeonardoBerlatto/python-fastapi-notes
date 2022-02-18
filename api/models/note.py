@@ -1,8 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+
+from api.models.base_object_id import PydanticObjectId
 
 
 class Note(BaseModel):
-    id: int
+    id: PydanticObjectId = Field(..., alias='_id')
     title: str
     description: str
-
