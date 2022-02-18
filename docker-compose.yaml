@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: api
+    hostname: api
+    ports:
+      - '8000:8000'
+    depends_on:
+      - mongo
+    environment:
+      ENV: production
+      MONGO_URL: 'mongodb://root:root@mongo:27017'
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+
